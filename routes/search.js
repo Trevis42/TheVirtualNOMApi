@@ -24,9 +24,10 @@ router.get("/", function(req, res, next) {
   client
     .search({
       location: req.query.location,
-      radius: req.query.radius,
-      offset: req.query.offset,
       limit: req.query.limit,
+      offset: req.query.offset,
+      radius: req.query.radius,
+      sort_by: req.query.sort_by,
     })
     .then(response => {
       fs.writeFile(
