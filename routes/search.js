@@ -13,7 +13,7 @@ const client = yelp.client(
 var express = require("express");
 var router = express.Router();
 
-/* GET users listing. */
+/* GET restaurant listing. */
 router.get("/", function(req, res, next) {
   let addy = req.query.location;
   console.log("addy:", addy);
@@ -33,7 +33,7 @@ router.get("/", function(req, res, next) {
     .then(response => {
       fs.writeFile(
         "../queryResult.json",
-        JSON.stringify(response.jsonBody.businesses),
+        JSON.stringify(response.jsonBody.businesses), //grabs the businesses portion from the response body
         err => {
           if (err) {
             console.error(err);
@@ -48,7 +48,6 @@ router.get("/", function(req, res, next) {
     .catch(e => {
       console.log(e);
     });
-  // res.send(json);
 });
 
 module.exports = router;
