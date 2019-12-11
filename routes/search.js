@@ -28,6 +28,7 @@ router.get("/", function(req, res, next) {
       offset: req.query.offset,
       radius: req.query.radius,
       sort_by: req.query.sort_by,
+      term: req.query.term,
     })
     .then(response => {
       fs.writeFile(
